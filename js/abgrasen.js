@@ -24,11 +24,6 @@ $(document).ready(function() {
 
   $('h1.cover-heading').html(personName);
 
-  // Only continue if more details on person available
-  if (!personName in people) {
-    return;
-  }
-
   // Try loading image
   $.ajax({
     url:'img/' + personName + '.jpg',
@@ -36,10 +31,18 @@ $(document).ready(function() {
     success: function() {
       $('.site-wrapper').css("background-image", "url('img/" + personName + ".jpg')");
       $('.site-wrapper').addClass('has-image');
+    },
+    complete: function() {
+      $('.site-wrapper').animate({opacity: 1}, { duration: 600, queue: false });
     }
   });
 
-  var person = people[domainString[0]];
+  // Only continue if more details on person available
+  if (!(personName in people)) {
+    return;
+  }
+
+  var person = people[personName];
 
   if ('text' in person) {
     $('h1.cover-heading').html(person['text']);
