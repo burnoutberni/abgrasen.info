@@ -22,7 +22,7 @@ $(document).ready(function() {
     personName = domainString[0];
   }
 
-  $('h1.cover-heading').html(personName);
+  $('#name').html(personName);
 
   // Try loading image
   $.ajax({
