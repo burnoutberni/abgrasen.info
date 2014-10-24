@@ -27,14 +27,22 @@ a:hover {
 html,
 body {
   height: 100%;
-/*  background-color: #333;
-  background-color: #4c2582;*/
-}
-body {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
   box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  font-family: 'Raleway', serif;
+  font-weight: 700;
+
+  background-color:#556;
+  background-image: linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+  linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+  linear-gradient(30deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+  linear-gradient(150deg, #445 12%, transparent 12.5%, transparent 87%, #445 87.5%, #445),
+  linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a), 
+  linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
+  background-size:80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -45,11 +53,14 @@ body {
   min-height: 100%;
 }
 
+.site-wrapper.has-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .site-wrapper {
-  background: -moz-linear-gradient(top, #90EE90, #006400);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #90EE90), color-stop(1, #006400));
-  background: -o-linear-gradient(top, #90EE90, #006400);
-  background: -ms-linear-gradient(top, #90EE90, #006400);
+  opacity: 0;
 }
 
 .site-wrapper-inner {
@@ -124,6 +135,21 @@ body {
   font-weight: bold;
 }
 
+.cover-heading {
+  text-shadow: 0 -1px 1px #888, 0 1px 1px #FFFFFF;
+  font-size: 6em;
+}
+
+#cc {
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+  text-align: center;
+}
+
+#name {
+  text-transform: uppercase;
+}
 
 /*
  * Footer
