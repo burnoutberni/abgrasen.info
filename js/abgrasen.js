@@ -1,5 +1,7 @@
+'use strict';
+
 $(document).ready(function() {
-  hashString = $(location).attr('hash').substring(1, $(location).attr('hash').length);
+  var hashString = $(location).attr('hash').substring(1, $(location).attr('hash').length);
   if (window.location.href.indexOf('https://') >= 0) {
     var domainString = window.location.href.split('https://')[1];
   } else {
