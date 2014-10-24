@@ -27,14 +27,12 @@ a:hover {
 html,
 body {
   height: 100%;
-/*  background-color: #333;
-  background-color: #4c2582;*/
-}
-body {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
   box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+  font-family: 'Raleway', serif;
+  font-weight: 700;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -128,6 +126,18 @@ body {
 .cover .btn-lg {
   padding: 10px 20px;
   font-weight: bold;
+}
+
+.cover-heading {
+  text-shadow: 0 -1px 1px #888, 0 1px 1px #FFFFFF;
+  font-size: 6em;
+}
+
+#cc {
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+  text-align: center;
 }
 
 
