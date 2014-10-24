@@ -45,6 +45,12 @@ body {
   min-height: 100%;
 }
 
+.site-wrapper.has-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .site-wrapper {
   background: -moz-linear-gradient(top, #90EE90, #006400);
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #90EE90), color-stop(1, #006400));
