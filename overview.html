@@ -21,9 +21,15 @@
 .row > div {
   padding:0 !important;
 }
+
+.col-md-4 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
     </style>
 
-    <link href='http://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
+    <!--link href='http://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'-->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -38,19 +44,19 @@
   <body>
     <div class="site-wrapper">
       <div class="row">
-        <a href="http://amir.abgrasen.info"><div class="col-md-4" style="background:url('img/amir.jpg') no-repeat center;"></div></a>
-        <a href="http://ben.abgrasen.info"><div class="col-md-4" style="background:url('img/ben.jpg') no-repeat center;"></div></a>
-        <a href="http://bennet.abgrasen.info"><div class="col-md-4" style="background:url('img/bennet.jpg') no-repeat center;"></div></a>
+        <a><div class="col-md-4" id="tile0"></div></a>
+        <a><div class="col-md-4" id="tile1"></div></a>
+        <a><div class="col-md-4" id="tile2"></div></a>
       </div>
       <div class="row">
-        <a href="http://juli.abgrasen.info"><div class="col-md-4" style="background:url('img/juli.jpg') no-repeat center;"></div></a>
-        <a href="http://leo.abgrasen.info"><div class="col-md-4" style="background:url('img/leo.jpg') no-repeat center;"></div></a>
-        <a href="http://lutoma.abgrasen.info"><div class="col-md-4" style="background:url('img/lutoma.jpg') no-repeat center;"></div></a>
+        <a><div class="col-md-4" id="tile3"></div></a>
+        <a><div class="col-md-4" id="tile4"></div></a>
+        <a><div class="col-md-4" id="tile5"></div></a>
       </div>
       <div class="row">
-        <a href="http://nini.abgrasen.info"><div class="col-md-4" style="background:url('img/nini.jpg') no-repeat center;"></div></a>
-        <a href="http://sonsti.abgrasen.info"><div class="col-md-4" style="background:url('img/sonsti.jpg') no-repeat center;"></div></a>
-        <a href="http://steffi.abgrasen.info"><div class="col-md-4" style="background:url('img/steffi.jpg') no-repeat center;"></div></a>
+        <a><div class="col-md-4" id="tile6"></div></a>
+        <a><div class="col-md-4" id="tile7"></div></a>
+        <a><div class="col-md-4" id="tile8"></div></a>
       </div>
     </div>
 
@@ -68,6 +74,13 @@ $(document).ready(function() {
   $("#centeredDiv").css("top",($(window).height()-$("#centeredDiv").height())/2);
   $(".col-md-4").height($(window).height()/3);
 //  $(".col-md-6").height($(window).height()/2);
+
+  var persons = ["amir","ben","bennet","else","juli","kajsa","leo","lutoma","nini","paul","silsha","sonsti","steffi"];
+
+  for (var i = 0;i<9;i++) {
+    $('#tile'+i).css('background-image','url(img/'+persons[i]+'.jpg)');
+    $('#tile'+i).parent().attr('href','http://'+persons[i]+'.abgrasen.info');
+  }
 });
 
 $(window).on('resize', function(){
