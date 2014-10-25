@@ -93,9 +93,18 @@ function shuffle(array) {
 $(document).ready(function() {
   $("#centeredDiv").css("top",($(window).height()-$("#centeredDiv").height())/2);
   $(".col-md-4").height($(window).height()/3);
-//  $(".col-md-6").height($(window).height()/2);
 
-  var persons = ["amir","ben","bennet","else","juli","kajsa","leo","lutoma","nini","paul","silsha","sonsti","steffi"];
+  var persons = [];
+
+  //Find all img-files with Apaches index site
+  $.ajax({
+    url: "img/",
+    success: function(data){
+       $(data).find("td > a").each(function(){
+          persons.push($(this).attr("href").split('.jpg')[0]);
+       });
+    }
+  });
 
   for (var i = 0;i<9;i++) {
     $('#tile'+i).css('background-image','url(img/'+persons[i]+'.jpg)');
@@ -104,15 +113,15 @@ $(document).ready(function() {
 
   setInterval(function() {
     shuffle(persons);
-    j = Math.floor(Math.random() * 8)
+    var j = Math.floor(Math.random() * 8)
     $('#tile'+j).css('background-image','url(img/'+persons[j]+'.jpg)');
     $('#tile'+j).parent().attr('href','http://'+persons[j]+'.abgrasen.info');
   }, 1000);
 });
 
 $(window).on('resize', function(){
+  $("#centeredDiv").css("top",($(window).height()-$("#centeredDiv").height())/2);
   $(".col-md-4").height($(window).height()/3);
-//  $(".col-md-6").height($(window).height()/2);
 });
     </script>
   </body>
