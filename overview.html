@@ -29,7 +29,7 @@
 }
     </style>
 
-    <!--link href='http://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'-->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -104,10 +104,9 @@ $(document).ready(function() {
 
   setInterval(function() {
     shuffle(persons);
-    for (var i = 0;i<9;i++) {
-      $('#tile'+i).css('background-image','url(img/'+persons[i]+'.jpg)');
-      $('#tile'+i).parent().attr('href','http://'+persons[i]+'.abgrasen.info');
-    }
+    j = Math.floor(Math.random() * 8)
+    $('#tile'+j).css('background-image','url(img/'+persons[j]+'.jpg)');
+    $('#tile'+j).parent().attr('href','http://'+persons[j]+'.abgrasen.info');
   }, 1000);
 });
 
