@@ -70,6 +70,26 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script>
+// Shuffle function stolen from lutoma
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 $(document).ready(function() {
   $("#centeredDiv").css("top",($(window).height()-$("#centeredDiv").height())/2);
   $(".col-md-4").height($(window).height()/3);
@@ -81,6 +101,14 @@ $(document).ready(function() {
     $('#tile'+i).css('background-image','url(img/'+persons[i]+'.jpg)');
     $('#tile'+i).parent().attr('href','http://'+persons[i]+'.abgrasen.info');
   }
+
+  setInterval(function() {
+    shuffle(persons);
+    for (var i = 0;i<9;i++) {
+      $('#tile'+i).css('background-image','url(img/'+persons[i]+'.jpg)');
+      $('#tile'+i).parent().attr('href','http://'+persons[i]+'.abgrasen.info');
+    }
+  }, 1000);
 });
 
 $(window).on('resize', function(){
