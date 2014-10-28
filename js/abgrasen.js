@@ -16,14 +16,12 @@ $(document).ready(function() {
   var ssl = (window.location.href.indexOf('https://') >= 0);
   var domainString = window.location.href.split(ssl ? 'https://' : 'http://')[1].split('.');
 
-  // Default person name
-  var personName = 'juli';
-
-  if (domainString.length > 2) {
-    // We have a name subdomain.
-    personName = domainString[0];
+  if (domainString.length < 3) {
+    // We don't have a name subdomain, redirect to default
+    window.location.replace('http://juli.abgrasen.info');
   }
 
+  var personName = domainString[0];
   $('#name').html(personName);
 
   // Try loading image
