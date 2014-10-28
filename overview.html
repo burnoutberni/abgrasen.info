@@ -100,23 +100,27 @@ $(document).ready(function() {
   $.ajax({
     url: "img/",
     success: function(data){
-       $(data).find("td > a").each(function(){
-          persons.push($(this).attr("href").split('.jpg')[0]);
-       });
+      var i = 0;
+      $(data).find("td > a").each(function(){
+        if($(this).attr("href").indexOf(".jpg") >= 0) {
+          var newPerson = $(this).attr("href").split('.jpg')[0];
+          persons.push(newPerson);
+          if (i < 9) {
+            $('#tile'+i).css('background-image','url(img/'+newPerson+'.jpg)');
+            $('#tile'+i).parent().attr('href','http://'+newPerson+'.abgrasen.info');
+          }
+          i++;
+        }
+      });
+
+      setInterval(function() {
+        shuffle(persons);
+        var j = Math.floor(Math.random() * 8)
+        $('#tile'+j).css('background-image','url(img/'+persons[j]+'.jpg)');
+        $('#tile'+j).parent().attr('href','http://'+persons[j]+'.abgrasen.info');
+      }, 1000);
     }
   });
-
-  for (var i = 0;i<9;i++) {
-    $('#tile'+i).css('background-image','url(img/'+persons[i]+'.jpg)');
-    $('#tile'+i).parent().attr('href','http://'+persons[i]+'.abgrasen.info');
-  }
-
-  setInterval(function() {
-    shuffle(persons);
-    var j = Math.floor(Math.random() * 8)
-    $('#tile'+j).css('background-image','url(img/'+persons[j]+'.jpg)');
-    $('#tile'+j).parent().attr('href','http://'+persons[j]+'.abgrasen.info');
-  }, 1000);
 });
 
 $(window).on('resize', function(){
