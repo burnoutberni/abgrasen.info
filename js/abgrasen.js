@@ -44,6 +44,7 @@ $(document).ready(function() {
 
   // Only continue if more details on person available
   if (!(personName in people)) {
+    $('title').html(personName.toUpperCase()+', BAUEN!!!');
     return;
   }
 
@@ -51,6 +52,9 @@ $(document).ready(function() {
 
   if ('text' in person) {
     $('h1.cover-heading').html(person['text']);
+    $('title').html(person['text']);
+  } else {
+    $('title').html(personName.toUpperCase()+', BAUEN!!!');
   }
 
   if ('cc' in person) {
