@@ -57,5 +57,5 @@ $(document).ready(function() {
     $('#mainh1').toggle();
     $('#chopchop').toggle();
   }
-  , 10000);
+  , 5000);
 });
