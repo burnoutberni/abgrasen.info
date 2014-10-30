@@ -97,14 +97,6 @@ function shuffle(array) {
   return array;
 }
 
-var images = new Array()
-function preload() {
-  for (i = 0; i < preload.arguments.length; i++) {
-    images[i] = new Image()
-    images[i].src = preload.arguments[i]
-  }
-}
-
 $(document).ready(function() {
   $("#centeredDiv").css("top",($(window).height()-$("#centeredDiv").height())/2);
   $(".col-md-4").height($(window).height()/3);
@@ -120,7 +112,8 @@ $(document).ready(function() {
         if($(this).attr("href").indexOf(".jpg") >= 0) {
           var newPerson = $(this).attr("href").split('.jpg')[0];
           persons.push(newPerson);
-          preload('img/'+newPerson+'.jpg');
+          var loadedimage = new Image();
+          loadedimage.src = 'img/'+newPerson+'.jpg';
           i++;
         }
       });
