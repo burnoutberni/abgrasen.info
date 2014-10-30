@@ -36,7 +36,7 @@ $(document).ready(function() {
     }
   });
 
-  setTimeout(function() {
+  setInterval(function() {
     $('#mainh1').toggle();
     $('#chopchop').toggle();
   }
