@@ -147,6 +147,13 @@ body {
   text-align: center;
 }
 
+#info {
+  position: absolute;
+  bottom: 5px;
+  right: 20px;
+  text-align: center;
+}
+
 #name {
   text-transform: uppercase;
 }
