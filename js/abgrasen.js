@@ -52,4 +52,10 @@ $(document).ready(function() {
     $('#cc').html(person['cc']);
     $('#cc').show();
   }  
+
+  setTimeout(function() {
+    $('#mainh1').toggle();
+    $('#chopchop').toggle();
+  }
+  , 10000);
 });
