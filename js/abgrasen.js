@@ -11,7 +11,6 @@ var people = {
 };
 
 $(document).ready(function() {
-
   var hashString = $(location).attr('hash').substring(1, $(location).attr('hash').length);
   var ssl = (window.location.href.indexOf('https://') >= 0);
   var domainString = window.location.href.split(ssl ? 'https://' : 'http://')[1].split('.');
@@ -37,6 +36,12 @@ $(document).ready(function() {
     }
   });
 
+  setTimeout(function() {
+    $('#mainh1').toggle();
+    $('#chopchop').toggle();
+  }
+  , 5000);
+
   // Only continue if more details on person available
   if (!(personName in people)) {
     return;
@@ -52,10 +57,4 @@ $(document).ready(function() {
     $('#cc').html(person['cc']);
     $('#cc').show();
   }  
-
-  setTimeout(function() {
-    $('#mainh1').toggle();
-    $('#chopchop').toggle();
-  }
-  , 5000);
 });
