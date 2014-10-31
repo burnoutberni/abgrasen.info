@@ -26,6 +26,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  opacity:0;
 }
 
 @media (max-width: 991px) {
@@ -33,7 +34,6 @@
     display:none;
   }
 }
-
     </style>
 
     <link href='http://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
@@ -67,8 +67,7 @@
       </div>
     </div>
 
-    <div id="centeredDiv" style="position: absolute;margin: auto;left: 
-0;right: 0;top: 0;pointer-events:none;">
+    <div id="centeredDiv" style="position: absolute;margin: auto;left:0;right: 0;top: 0;pointer-events:none;">
       <h1>ABGRASEN.INFO</h1>
       <p class="lead">To add your picture make a <a style="pointer-events:auto" href="https://github.com/burnoutberni/abgrasen.info">pull request</a></p>
     </div>
@@ -112,27 +111,41 @@ $(document).ready(function() {
         if($(this).attr("href").indexOf(".jpg") >= 0) {
           var newPerson = $(this).attr("href").split('.jpg')[0];
           persons.push(newPerson);
-          var loadedimage = new Image();
-          loadedimage.src = 'img/'+newPerson+'.jpg';
           i++;
         }
       });
     },
     complete: function() {
-      $('#tile0').html('');
-      for(var i = 0;i<9;i++) {
-        shuffle(persons);
-        $('#tile'+i).css('background-image','url(img/'+persons[0]+'.jpg)');
-        $('#tile'+i).parent().attr('href','http://'+persons[0]+'.abgrasen.info');
+      var loadedimage = [];
+      var m = 0;
+      for(var k=0; k < 9; k++) {
+//        shuffle(persons);
+        loadedimage[k] = new Image();
+
+        $(loadedimage[k]).attr('src','img/'+persons[k]+'.jpg').load(function() {
+          $('#tile'+m).css('background-image','url('+this.src+')');
+          $('#tile'+m).parent().attr('href','http://'+persons[m]+'.abgrasen.info');
+          $('#tile'+m).animate({opacity:1},'slow');
+          m++;
+        });
+
       }
+
+
       setTimeout(function() {
+        $('body').css("background","black");
         setInterval(function() {
           shuffle(persons);
           var j = Math.floor(Math.random() * 9);
-          $('#tile'+j).css('background-image','url(img/'+persons[j]+'.jpg)');
+          var loadedimage = new Image();
+          $(loadedimage).attr('src','img/'+persons[j]+'.jpg').load(function() {
+            $('#tile'+j).fadeTo('slow', 0.3, function() {
+              $(this).css('background-image','url("img/'+persons[j]+'.jpg")');
+            }).fadeTo('slow', 1);
+          });
           $('#tile'+j).parent().attr('href','http://'+persons[j]+'.abgrasen.info');
         }, 1000);
-      }, 10000);
+      }, 5000);
     }
   });
 });
