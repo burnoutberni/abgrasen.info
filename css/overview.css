@@ -1,0 +1,38 @@
+.site-wrapper {
+  opacity:1;
+}
+
+.row {
+  padding:0;
+  margin:0;
+}
+
+.row > div {
+  padding:0;
+}
+
+.col-md-4 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity:0;
+}
+
+@media (max-width: 991px) {
+  .row:nth-child(1n+2) {
+    display:none;
+  }
+}
+
+#centeredDiv {
+  position: absolute;
+  margin: auto;
+  left:0;
+  right: 0;
+  top: 0;
+  pointer-events:none;
+}
+
+#pullrequest {
+  pointer-events:auto;
+}
