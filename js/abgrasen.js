@@ -6,7 +6,6 @@ var people = {
   'kajsa': {'text': 'Ach Kajsa! <3', 'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'},
   'leo': {'text': 'LEO, DU ALTER MANN!', 'cc': 'Dein Geburtstag ist vorbei, bau jetzt endlich!'},
   'nini': {'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'},
-  'else': {'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'},
   'paul': {'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'}
 };
 
