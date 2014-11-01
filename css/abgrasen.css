@@ -138,7 +138,6 @@ body {
 
 .cover-heading {
   text-shadow: 0 -1px 1px #888, 0 1px 1px #FFFFFF;
-  font-size: 6em;
 }
 
 #cc {
@@ -173,6 +172,11 @@ body {
  * Affix and center
  */
 
+/* Start the vertical centering */
+.site-wrapper-inner {
+  vertical-align: middle;
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 80px;
@@ -187,10 +191,7 @@ body {
     position: fixed;
     bottom: 0;
   }
-  /* Start the vertical centering */
-  .site-wrapper-inner {
-    vertical-align: middle;
-  }
+
   /* Handle the widths */
   .masthead,
   .mastfoot,
