@@ -13,9 +13,7 @@ var people = {
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex ;
 
-  // While there remain elements to shuffle...
   while (0 !== currentIndex) {
-
     // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
@@ -73,7 +71,11 @@ var showOverview = function() {
       setTimeout(function() {
         $('body').css("background","black");
         setInterval(function() {
-          var j = Math.floor(Math.random() * 9);
+          if($(window).width() < 992) {
+            var j = Math.floor(Math.random() * 3);
+          } else {
+            var j = Math.floor(Math.random() * 9);
+          }
           if(!allUsed) {
             var loadedimage = new Image();
             $(loadedimage).attr('src','img/'+persons[m]+'.jpg').load(function() {
@@ -82,7 +84,6 @@ var showOverview = function() {
                 $('#tile'+j).parent().attr('href','http://'+persons[m]+'.abgrasen.info');
               }).fadeTo('slow', 1);
             });
-            console.log(m+'/'+persons.length+': '+persons[m]);
             m++;
             if(m+1 == persons.length) {
               allUsed = true;
@@ -93,7 +94,6 @@ var showOverview = function() {
               $(this).css('background-image','url("img/'+persons[0]+'.jpg")');
               $('#tile'+j).parent().attr('href','http://'+persons[0]+'.abgrasen.info');
             }).fadeTo('slow', 1);
-            console.log(m+'x/'+persons.length+': '+persons[0]);
           }
         }, 3000);
       }, 5000);
@@ -107,8 +107,6 @@ $(document).ready(function() {
   var domainString = window.location.href.split(ssl ? 'https://' : 'http://')[1].split('.');
 
   if (domainString.length < 3) {
-    // We don't have a name subdomain, redirect to default
-    //window.location.replace('http://juli.abgrasen.info');
     showOverview();
     return;
   }
