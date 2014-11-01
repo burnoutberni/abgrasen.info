@@ -68,20 +68,34 @@ var showOverview = function() {
 
       }
 
+      var allUsed = false;
 
       setTimeout(function() {
         $('body').css("background","black");
         setInterval(function() {
-          shuffle(persons);
           var j = Math.floor(Math.random() * 9);
-          var loadedimage = new Image();
-          $(loadedimage).attr('src','img/'+persons[j]+'.jpg').load(function() {
+          if(!allUsed) {
+            var loadedimage = new Image();
+            $(loadedimage).attr('src','img/'+persons[m]+'.jpg').load(function() {
+              $('#tile'+j).fadeTo('slow', 0.3, function() {
+                $(this).css('background-image','url("img/'+persons[m]+'.jpg")');
+                $('#tile'+j).parent().attr('href','http://'+persons[m]+'.abgrasen.info');
+              }).fadeTo('slow', 1);
+            });
+            console.log(m+'/'+persons.length+': '+persons[m]);
+            m++;
+            if(m+1 == persons.length) {
+              allUsed = true;
+            }
+          } else {
+            shuffle(persons);
             $('#tile'+j).fadeTo('slow', 0.3, function() {
-              $(this).css('background-image','url("img/'+persons[j]+'.jpg")');
-              $('#tile'+j).parent().attr('href','http://'+persons[j]+'.abgrasen.info');
+              $(this).css('background-image','url("img/'+persons[0]+'.jpg")');
+              $('#tile'+j).parent().attr('href','http://'+persons[0]+'.abgrasen.info');
             }).fadeTo('slow', 1);
-          });
-        }, 1000);
+            console.log(m+'x/'+persons.length+': '+persons[0]);
+          }
+        }, 3000);
       }, 5000);
     }
   });
@@ -92,7 +106,7 @@ $(document).ready(function() {
   var ssl = (window.location.href.indexOf('https://') >= 0);
   var domainString = window.location.href.split(ssl ? 'https://' : 'http://')[1].split('.');
 
-  if (domainString.length < 3 || domainString[2] === 'html') {
+  if (domainString.length < 3) {
     // We don't have a name subdomain, redirect to default
     //window.location.replace('http://juli.abgrasen.info');
     showOverview();
