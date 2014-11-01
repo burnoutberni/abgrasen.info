@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Bernhard Hayden">
+
+    <title>Abgrasen!</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link href='http://fonts.googleapis.com/css?family=Raleway:700' rel='stylesheet' type='text/css'>
+    <link href="http://abgrasen.info/css/abgrasen.css" rel="stylesheet">
+
+    <style>
+#overview {
+  display:none;
+}
+
+
+    </style>
+  </head>
+
+  <body>
+    <div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="inner cover" id="main">
+            <h1 class="cover-heading" id="mainh1">
+              <span id="name"><span id="clickname">Juli</span></span>, BAUEN!!!
+            </h1>
+            <h1 class="cover-heading" id="chopchop">CHOP CHOP!!!</h1>
+            
+            <p class="lead" id="cc" style="display:none;"></p>
+            <p class="lead" id="info">
+              <a href="http://darklab.org/jrp.txt">JRP</a> &bull; 
+              <a href="http://github.com/burnoutberni/abgrasen.info">Github</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-wrapper" id="overview">
+      <div class="row">
+        <a><div class="col-md-4" id="tile0"></div></a>
+        <a><div class="col-md-4" id="tile1"></div></a>
+        <a><div class="col-md-4" id="tile2"></div></a>
+      </div>
+      <div class="row">
+        <a><div class="col-md-4" id="tile3"></div></a>
+        <a><div class="col-md-4" id="tile4"></div></a>
+        <a><div class="col-md-4" id="tile5"></div></a>
+      </div>
+      <div class="row">
+        <a><div class="col-md-4" id="tile6"></div></a>
+        <a><div class="col-md-4" id="tile7"></div></a>
+        <a><div class="col-md-4" id="tile8"></div></a>
+      </div>
+      <div id="centeredDiv">
+      <h1>ABGRASEN.INFO</h1>
+      <p class="lead">To add your picture make a <a id="pullrequest" href="https://github.com/burnoutberni/abgrasen.info">pull request</a></p>
+      </div>
+    </div>
+
+
+
+    <script src="http://abgrasen.info/js/jquery-1.11.0.min.js"></script>
+    <script src="http://abgrasen.info/js/bootstrap.min.js"></script>
+    <script src="http://abgrasen.info/js/abgrasen.js"></script>
+
+    <script type="text/javascript">
+      var _gauges = _gauges || [];
+      (function() {
+        var t   = document.createElement('script');
+        t.type  = 'text/javascript';
+        t.async = true;
+        t.id    = 'gauges-tracker';
+        t.setAttribute('data-site-id', '5452b779e32bb45c500021f3');
+        t.src = '//secure.gaug.es/track.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(t, s);
+      })();
+    </script>
+  </body>
+</html>
+
