@@ -1,5 +1,14 @@
 'use strict';
 
+$('.fa-pause').click(function() {
+  $('.fa').toggle();
+  $('audio').trigger('pause');
+});
+$('.fa-play').click(function() {
+  $('.fa').toggle();
+  $('audio').trigger('play');
+});
+
 var people = {
   'juli': {'cc': 'CC-BY <a href="http://silsha.me">silsha</a>'},
   'bennet': {'text': 'BENNET, HOLEN!', 'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'},

@@ -249,3 +249,11 @@ body {
 #overview, #centeredDiv, #cc {
   display:none;
 }
+
+.fa-play {
+  display:none;
+}
+
+.fa {
+  cursor:pointer;
+}
