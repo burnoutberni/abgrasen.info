@@ -84,12 +84,14 @@ var showOverview = function() {
 
       setTimeout(function() {
         $('body').css("background","black");
+        var jj = 3;
+        var j = Math.floor(Math.random() * 3);
         setInterval(function() {
-//          if($(window).width() < 992) {
-            var j = Math.floor(Math.random() * 3);
-//          } else {
-//            var j = Math.floor(Math.random() * 9);
-//          }
+          while (j === jj) {
+            j = Math.floor(Math.random() * 3)
+          }
+          jj = j;
+
           if(!allUsed) {
             var loadedimage = new Image();
             $(loadedimage).attr('src','img/'+persons[m]+'.jpg').load(function() {
@@ -105,10 +107,14 @@ var showOverview = function() {
           } else {
             shuffle(persons);
             $('#tile'+j).fadeTo('slow', 0.3, function() {
-              $(this).css('background-image','url("img/'+persons[0]+'.jpg")');
+              if ($(this).css('background-image') == 'url("http://abgrasen.info/img/'+persons[0]+'.jpg")') {
+                $(this).css('background-image','url("img/'+persons[1]+'.jpg")');
+              } else {
+                $(this).css('background-image','url("img/'+persons[0]+'.jpg")');
+              }
+              checkBg();
               $('#tile'+j).parent().attr('href','http://'+persons[0]+'.abgrasen.info');
             }).fadeTo('slow', 1);
-            checkBg();
           }
         }, 3000);
       }, 5000);
