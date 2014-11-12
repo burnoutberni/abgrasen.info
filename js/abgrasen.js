@@ -18,6 +18,12 @@ var people = {
   'paul': {'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'}
 };
 
+function checkBg() {
+  if ($('#tile0').css('background-image') == $('#tile1').css('background-image') && $('#tile1').css('background-image') == $('#tile2').css('background-image')) {
+    $('h1').html('GMAHDE WIESN');
+  }
+}
+
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex ;
 
@@ -79,11 +85,11 @@ var showOverview = function() {
       setTimeout(function() {
         $('body').css("background","black");
         setInterval(function() {
-          if($(window).width() < 992) {
+//          if($(window).width() < 992) {
             var j = Math.floor(Math.random() * 3);
-          } else {
-            var j = Math.floor(Math.random() * 9);
-          }
+//          } else {
+//            var j = Math.floor(Math.random() * 9);
+//          }
           if(!allUsed) {
             var loadedimage = new Image();
             $(loadedimage).attr('src','img/'+persons[m]+'.jpg').load(function() {
@@ -102,6 +108,7 @@ var showOverview = function() {
               $(this).css('background-image','url("img/'+persons[0]+'.jpg")');
               $('#tile'+j).parent().attr('href','http://'+persons[0]+'.abgrasen.info');
             }).fadeTo('slow', 1);
+            checkBg();
           }
         }, 3000);
       }, 5000);

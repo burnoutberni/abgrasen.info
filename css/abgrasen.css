@@ -227,6 +227,12 @@ body {
   opacity:0;
 }
 
+/*test*/
+@media (min-width: 992px) {
+  .row { height:100%; }
+  .col-md-4 { height:100% !important; }
+}
+
 @media (max-width: 991px) {
   .row:nth-child(1n+2) {
     display:none;
