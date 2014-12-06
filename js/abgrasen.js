@@ -1,12 +1,14 @@
 'use strict';
 
-$('.fa-pause').click(function() {
-  $('.fa').toggle();
+$('#pause').click(function() {
+  $('.audiocontrol').toggle();
   $('audio').trigger('pause');
+  return false;
 });
-$('.fa-play').click(function() {
-  $('.fa').toggle();
+$('#play').click(function() {
+  $('.audiocontrol').toggle();
   $('audio').trigger('play');
+  return false;
 });
 
 var people = {
