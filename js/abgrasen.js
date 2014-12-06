@@ -148,11 +148,13 @@ $(document).ready(function() {
     }
   });
 
-  setInterval(function() {
-    $('#mainh1').toggle();
-    $('#chopchop').toggle();
-  }
-  , 5000);
+  setTimeout(function() {
+    setInterval(function() {
+      $('#mainh1').toggle();
+      $('#chopchop').toggle();
+    }
+    , 5000);
+  , 30000);
 
   // Only continue if more details on person available
   if (!(personName in people)) {
