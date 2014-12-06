@@ -154,6 +154,7 @@ $(document).ready(function() {
       $('#chopchop').toggle();
     }
     , 5000);
+  }
   , 30000);
 
   // Only continue if more details on person available
