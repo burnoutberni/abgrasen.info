@@ -13,8 +13,7 @@ $('#play').click(function() {
 
 var people = {
   'juli': {'cc': 'CC-BY <a href="http://silsha.me">silsha</a>'},
-  'bennet': {'text': 'BACK MAL, BENNET!', 'cc': 'CC-BY <a 
-href="http://lutoma.org">lutoma</a>'},
+  'bennet': {'text': 'BACK MAL, BENNET!', 'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'},
   'kajsa': {'text': 'Ach Kajsa! <3', 'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'},
   'leo': {'text': 'LEO, DU ALTER MANN!', 'cc': 'Dein Geburtstag ist vorbei, bau jetzt endlich!'},
   'nini': {'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'},
