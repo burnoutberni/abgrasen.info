@@ -46,7 +46,7 @@ function pong() {
         'display':'none'
     }).appendTo( 'body' ).fadeIn(100).delay(1000).fadeOut(500, function(){
       $(this).remove();
-      makeDiv(); 
+      pong(); 
     }); 
 }
 
@@ -179,7 +179,7 @@ $(document).ready(function() {
       $('#mainh1').toggle();
       $('#chopchop').toggle();
     }, 5000);
-    setInterval(function() {
+    setTimeout(function() {
       pong();
     }, 10000);
   }, 30000);
