@@ -29,7 +29,7 @@ function checkBg() {
 function pong() {
     // vary size for fun
     var divsize = ((Math.random()*100) + 50).toFixed();
-    $newdiv = $('<div/>').css({
+    var newdiv = $('<div/>').css({
         'width':divsize+'px',
         'height':divsize+'px',
         'font-size': '60px'
@@ -39,7 +39,7 @@ function pong() {
     var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
     var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
 
-    $newdiv.css({
+    newdiv.css({
         'position':'absolute',
         'left':posx+'px',
         'top':posy+'px',
