@@ -26,6 +26,30 @@ function checkBg() {
   }
 }
 
+function pong() {
+    // vary size for fun
+    var divsize = ((Math.random()*100) + 50).toFixed();
+    $newdiv = $('<div/>').css({
+        'width':divsize+'px',
+        'height':divsize+'px',
+        'font-size': '60px'
+    }).html('pong');
+
+    // make position sensitive to size and document's width
+    var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+    var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
+
+    $newdiv.css({
+        'position':'absolute',
+        'left':posx+'px',
+        'top':posy+'px',
+        'display':'none'
+    }).appendTo( 'body' ).fadeIn(100).delay(1000).fadeOut(500, function(){
+      $(this).remove();
+      makeDiv(); 
+    }); 
+}
+
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex ;
 
@@ -154,10 +178,11 @@ $(document).ready(function() {
     setInterval(function() {
       $('#mainh1').toggle();
       $('#chopchop').toggle();
-    }
-    , 5000);
-  }
-  , 30000);
+    }, 5000);
+    setInterval(function() {
+      pong();
+    }, 10000);
+  }, 30000);
 
   // Only continue if more details on person available
   if (!(personName in people)) {
