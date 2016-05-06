@@ -151,14 +151,14 @@ var showOverview = function() {
 
 $(document).ready(function() {
   var ssl = (window.location.href.indexOf('https://') >= 0);
-  var domainString = punycode.toUnicode(window.location.href.split(ssl ? 'https://' : 'http://')[1].split('.'));
+  var domainString = window.location.href.split(ssl ? 'https://' : 'http://')[1].split('.');
 
   if (domainString.length < 3) {
     showOverview();
     return;
   }
 
-  var personName = domainString[0];
+  var personName = punycode.toUnicode(domainString[0]);
   $('#name').html(personName);
 
   // Try loading image
