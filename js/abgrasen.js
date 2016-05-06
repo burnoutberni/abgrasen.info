@@ -17,7 +17,8 @@ var people = {
   'kajsa': {'text': 'Ach Kajsa! <3', 'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'},
   'leo': {'text': 'LEO, DU ALTER MANN!', 'cc': 'Dein Geburtstag ist vorbei, bau jetzt endlich!'},
   'nini': {'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'},
-  'paul': {'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'}
+  'paul': {'cc': 'CC-BY <a href="http://lutoma.org">lutoma</a>'},
+  'eliška': {'cc': 'CC-BY <a href="http://nini.su">nini</a>'}
 };
 
 function checkBg() {
@@ -46,8 +47,8 @@ function pong() {
         'display':'none'
     }).appendTo( 'body' ).fadeIn(100).delay(1000).fadeOut(500, function(){
       $(this).remove();
-      pong(); 
-    }); 
+      pong();
+    });
 }
 
 function shuffle(array) {
@@ -149,9 +150,8 @@ var showOverview = function() {
 };
 
 $(document).ready(function() {
-  var hashString = $(location).attr('hash').substring(1, $(location).attr('hash').length);
   var ssl = (window.location.href.indexOf('https://') >= 0);
-  var domainString = window.location.href.split(ssl ? 'https://' : 'http://')[1].split('.');
+  var domainString = punycode.decode(window.location.href.split(ssl ? 'https://' : 'http://')[1].split('.'));
 
   if (domainString.length < 3) {
     showOverview();
@@ -202,7 +202,7 @@ $(document).ready(function() {
   if ('cc' in person) {
     $('#cc').html(person['cc']);
     $('#cc').show();
-  }  
+  }
 });
 
 $(window).on('resize', function(){
