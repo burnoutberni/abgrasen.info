@@ -77,77 +77,59 @@ var showOverview = function() {
   $("#centeredDiv").css("top",($(window).height()-$("#centeredDiv").height())/2);
   $(".col-md-4").height($(window).height()/3);
 
-  var persons = [];
+  var persons = ['amir', 'ben', 'bennet', 'eliška', 'juli', 'kajsa', 'leo', 'lutoma', 'max', 'nico', 'nini', 'paul', 'phileas', 'silsha', 'sonsti', 'steffi'];
+  var loadedimage = [];
+  var m = 0;
+  for(var k=0; k < 9; k++) {
+    loadedimage[k] = new Image();
 
-  //Find all img-files with Apaches index site
-  $.ajax({
-    url: "img/",
-    success: function(data){
-      var i = 0;
-      $(data).find("td > a").each(function(){
-        if($(this).attr("href").indexOf(".jpg") >= 0) {
-          var newPerson = $(this).attr("href").split('.jpg')[0];
-          persons.push(newPerson);
-          i++;
-        }
-      });
-    },
-    complete: function() {
-      var loadedimage = [];
-      var m = 0;
-      for(var k=0; k < 9; k++) {
-        loadedimage[k] = new Image();
+    $(loadedimage[k]).attr('src','img/'+persons[k]+'.jpg').load(function() {
+      $('#tile'+m).css('background-image','url('+this.src+')');
+      $('#tile'+m).parent().attr('href','http://'+persons[m]+'.abgrasen.info');
+      $('#tile'+m).animate({opacity:1},'slow');
+      m++;
+    });
+  }
 
-        $(loadedimage[k]).attr('src','img/'+persons[k]+'.jpg').load(function() {
-          $('#tile'+m).css('background-image','url('+this.src+')');
-          $('#tile'+m).parent().attr('href','http://'+persons[m]+'.abgrasen.info');
-          $('#tile'+m).animate({opacity:1},'slow');
-          m++;
-        });
+  var allUsed = false;
 
+  setTimeout(function() {
+    $('body').css("background","black");
+    var jj = 3;
+    var j = Math.floor(Math.random() * 3);
+    setInterval(function() {
+      while (j === jj) {
+        j = Math.floor(Math.random() * 3)
       }
+      jj = j;
 
-      var allUsed = false;
-
-      setTimeout(function() {
-        $('body').css("background","black");
-        var jj = 3;
-        var j = Math.floor(Math.random() * 3);
-        setInterval(function() {
-          while (j === jj) {
-            j = Math.floor(Math.random() * 3)
-          }
-          jj = j;
-
-          if(!allUsed) {
-            var loadedimage = new Image();
-            $(loadedimage).attr('src','img/'+persons[m]+'.jpg').load(function() {
-              $('#tile'+j).fadeTo('slow', 0.3, function() {
-                $(this).css('background-image','url("img/'+persons[m]+'.jpg")');
-                $('#tile'+j).parent().attr('href','http://'+persons[m]+'.abgrasen.info');
-              }).fadeTo('slow', 1);
-            });
-            m++;
-            if(m+1 == persons.length) {
-              allUsed = true;
-            }
+      if(!allUsed) {
+        var loadedimage = new Image();
+        $(loadedimage).attr('src','img/'+persons[m]+'.jpg').load(function() {
+          $('#tile'+j).fadeTo('slow', 0.3, function() {
+            $(this).css('background-image','url("img/'+persons[m]+'.jpg")');
+            $('#tile'+j).parent().attr('href','http://'+persons[m]+'.abgrasen.info');
+          }).fadeTo('slow', 1);
+        });
+        m++;
+        if(m+1 == persons.length) {
+          allUsed = true;
+        }
+      } else {
+        shuffle(persons);
+        $('#tile'+j).fadeTo('slow', 0.3, function() {
+          if ($(this).css('background-image') == 'url("http://abgrasen.info/img/'+persons[0]+'.jpg")') {
+            $(this).css('background-image','url("img/'+persons[1]+'.jpg")');
           } else {
-            shuffle(persons);
-            $('#tile'+j).fadeTo('slow', 0.3, function() {
-              if ($(this).css('background-image') == 'url("http://abgrasen.info/img/'+persons[0]+'.jpg")') {
-                $(this).css('background-image','url("img/'+persons[1]+'.jpg")');
-              } else {
-                $(this).css('background-image','url("img/'+persons[0]+'.jpg")');
-              }
-              checkBg();
-              $('#tile'+j).parent().attr('href','http://'+persons[0]+'.abgrasen.info');
-            }).fadeTo('slow', 1);
+            $(this).css('background-image','url("img/'+persons[0]+'.jpg")');
           }
-        }, 3000);
-      }, 5000);
-    }
-  });
-};
+          checkBg();
+          $('#tile'+j).parent().attr('href','http://'+persons[0]+'.abgrasen.info');
+        }).fadeTo('slow', 1);
+      }
+    }, 3000);
+  }, 5000);
+}
 
 $(document).ready(function() {
   var ssl = (window.location.href.indexOf('https://') >= 0);
